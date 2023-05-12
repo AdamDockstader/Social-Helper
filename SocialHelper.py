@@ -16,7 +16,7 @@ numFollowers = profile.followers
 numFollowees = profile.followees
 posts = profile.get_posts()
 
-def getFollowingRatio():
+def printFollowingRatio():
     profile
     ratio = numFollowers/numFollowees
     if(ratio<.5):
@@ -32,12 +32,18 @@ def getFollowingRatio():
     elif(ratio>=2):
         print("Here's your ratio: ", ratio, " A+ You've done it! You have a perfect ratio!")
 
-def getLikesRatio:
+def getFollowingRatio():
+    return numFollowers/numFollowees
+
+def getLikesRatio():
    if(profile.mediacount >= 3):
         sum = 0
+        for(i in range(3)):
+            
         mostRecentPost = next(posts)
+        sum += mostRecentPost.get_likes
+        secondMostRecentPost = next()
         
-
 
 
 
