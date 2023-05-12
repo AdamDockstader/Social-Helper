@@ -32,19 +32,65 @@ def printFollowingRatio():
     elif(ratio>=2):
         print("Here's your ratio: ", ratio, " A+ You've done it! You have a perfect ratio!")
 
+def getFollowingRatioGrade():
+    if(ratio<.5):
+        return "B-"
+    elif(ratio<.8):
+       return "B"
+    elif(ratio<1):
+       return "B+"
+    elif(ratio<1.2): 
+        return "A-"
+    elif(ratio<2):
+       return "A"
+    elif(ratio>=2):
+       return "A+"
+
 def getFollowingRatio():
     return numFollowers/numFollowees
 
 def getLikesRatio():
    if(profile.mediacount >= 3):
         sum = 0
-        for(i in range(3)):
-            
         mostRecentPost = next(posts)
         sum += mostRecentPost.get_likes
-        secondMostRecentPost = next()
-        
+        secondMostRecentPost = next(posts)
+        sum += secondMostRecentPost.get_likes
+        thirdMostRecentPost = next(posts)
+        sum += thirdMostRecentPost.get_likes
+        return sum/3/numFollowers
+   elif(profile.mediacount == 2):
+        sum = 0
+        mostRecentPost = next(posts)
+        sum += mostRecentPost.get_likes
+        secondMostRecentPost = next(posts)
+        sum += secondMostRecentPost.get_likes
+        return sum/2/numFollowers
+   elif(profile.mediacount == 1):
+        sum = 0
+        mostRecentPost = next(posts)
+        sum += mostRecentPost.get_likes
+        return sum/numFollowers
+   else: 
+        return 0
 
+def getLikesRatioGrade()
+    if(getLikesRatio()<.1):
+        return "B-"
+    elif(getLikesRatio()<.2):
+        return "B"
+    elif(getLikesRatio() <.3):
+        return "B+"
+    elif(getLikesRatio() <.5):
+        return "A-"
+    elif(getLikesRatio() < 1):
+        return "A"
+    else:
+        return "A+"
+
+def printLikesRatio():
+    Print("In general, most of the time people get less likes on a post than followers they have. This is a very normal occurence and should not be seen as a bad thing.")
+    if()
 
 
 
