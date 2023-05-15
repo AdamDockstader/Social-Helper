@@ -20,7 +20,9 @@ def printFollowingRatio():
     profile
     ratio = numFollowers/numFollowees
     if(ratio<.5):
-        print("Here's your ratio: ", ratio, ". B- Strong start! Keep working at it!")
+        print("Here's your ratio: ", ratio)
+        print("Grade: B-")
+        print("Strong start! Keep working at it!")
     elif(ratio<.8):
         print("Here's your ratio: ", ratio, " B This is a good spot to be in. Your ratio is pretty good.")
     elif(ratio<1):
@@ -74,12 +76,12 @@ def getLikesRatio():
    else: 
         return 0
 
-def getLikesRatioGrade()
+def getLikesRatioGrade():
     if(getLikesRatio()<.1):
         return "B-"
     elif(getLikesRatio()<.2):
         return "B"
-    elif(getLikesRatio() <.3):
+    elif(getLikesRatio() <.333):
         return "B+"
     elif(getLikesRatio() <.5):
         return "A-"
@@ -89,10 +91,38 @@ def getLikesRatioGrade()
         return "A+"
 
 def printLikesRatio():
-    Print("In general, most of the time people get less likes on a post than followers they have. This is a very normal occurence and should not be seen as a bad thing.")
-    if()
+    ratio = getLikesRatioGrade()
+    if(getLikesRatioGrade() != "A+"):
+        print("In general, most of the time people get less likes on a post than followers they have. This is a very normal occurence and should not be seen as a bad thing.")
+        if(getLikesRatioGrade() == "B-"):
+            print("Here's your ratio: ", ratio, " B- This isn't a terrible spot to be in. Your likes ratio may be a little low, but that's ok! The only way to go is up!") 
+        elif(getLikesRatioGrade() == "B"):
+            print("Here's your ratio: ", ratio)
+            print("Grade: B")
+            print("This is a strong start. This number indicates that you have a modest loyal fanbase.")
+        elif(getLikesRatioGrade() == "B+"):
+            print("Here's your ratio: ", ratio)
+            print("Grade: B+")
+            print("This is a great spot to be in! A B+ is a strong score, and it shows that a large amount of your followers like your posts. Keep it up!")
+        elif(getLikesRatioGrade() == "A-"):
+            print("Here's you ratio: ", ratio)
+            print("Grade: A-")
+            print("Wow! This is amazing! Over a third of your followers have likes your last three posts! This is an ideal place to be in! Keep it up!")
+        elif(getLikesRatioGrade() == "A"):
+            print("Here's your ratio: ", ratio)
+            print("Grade: A")
+            print("This is amazing! Over half of your followers have liked your last three posts! You have a large and loyal dedicated fanbase. Nice work and keep on posting!")
+    else: 
+        print("Here's your ratio: ", ratio)
+        print("Grade: A+")
+        print("This is amazing! Consistently having more likes than followers is something to be proud of! You're either famous, a local celebrity, or just someone special! Your fanbase is large and loyal, along with some secret followers who may not be actually be following you. Nice job and keep it up!")
+        
+def getCommentToLikesRatio():
+    if(profile.mediacount >= 3):
+        sum = 0
+        mostRecentPost = next(posts)
+        sum += mostRecentPost.get_comments
 
 
 
-
-
+print(posts.get_comments())
