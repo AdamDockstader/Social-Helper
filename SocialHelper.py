@@ -121,8 +121,76 @@ def getCommentToLikesRatio():
     if(profile.mediacount >= 3):
         sum = 0
         mostRecentPost = next(posts)
-        sum += mostRecentPost.get_comments
+        sum += len(mostRecentPost.comments)
+        secondMostRecentPost = next(mostRecentPost)
+        sum += len(secondMostRecentPost.comments)
+        thirdMostRecentPost = next(secondMostRecentPost)
+        sum += len(thirdMostRecentPost.comments)
+        return sum/3
+    elif(profile.mediacount == 2):
+        sum = 0
+        mostRecentPost = next(posts)
+        sum += len(mostRecentPost.comments)
+        secondMostRecentPost = next(mostRecentPost)
+        sum += len(secondMostRecentPost.comments)
+        return sum/2
+    elif(profile.mediacount == 1):
+        sum = 0
+        mostRecentPost = next(posts)
+        sum += len(mostRecentPost.comments)
+        return sum
+    else:
+        return 0
 
+def getCommentToLikesRatioGrade():
+    if(getCommentToLikesRatio == 0):
+        return "N/A"
+    elif(getCommentToLikesRatio() <=.02):
+        return "C+"
+    elif(getCommentToLikesRatio() <=.05):
+        return "B-"
+    elif(getCommentToLikesRatio() <=.1):
+        return "B"
+    elif(getCommentToLikesRatio() <=.15):
+        return "B+"
+    elif(getCommentToLikesRatio() <=.25):
+        return "A-"
+    elif(getCommentToLikesRatio() <=.333):
+        return "A"
+    else:
+        return "A+"
 
-
-print(posts.get_comments())
+def printCommentToLikesRatio():
+    ratio = getCommentToLikesRatio
+    if(getCommentToLikesRatioGrade() == "N/A"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("You don't have any posts! Maybe you should create a post!")
+    elif(getCommentToLikesRatioGrade() == "C+"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("There is some great room for improvment! Keep on posting and the comments will come!")
+    elif(getCommentToLikesRatioGrade() == "B-"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("This is a strong start. You a few loyal fans, and you will more with more followers.")
+    elif(getCommentToLikesRatioGrade() == "B"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("This is solid. You have a small group of loyal fans, and that will continue to grow. Right now, you are in a good place!")
+    elif(getCommentToLikesRatioGrade() == "B+"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("")
+    elif(getCommentToLikesRatioGrade() == "A-"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("")
+    elif(getCommentToLikesRatioGrade() == "A"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("")
+    elif(getCommentToLikesRatioGrade() == "A+"):
+        print("Here's your ratio:", ratio)
+        print("Here's your grade:", getCommentToLikesRatioGrade)
+        print("")
